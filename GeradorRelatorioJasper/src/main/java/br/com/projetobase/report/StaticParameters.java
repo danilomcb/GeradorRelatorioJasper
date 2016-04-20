@@ -21,9 +21,5 @@ public interface StaticParameters {
 	 * Nome do arquivo de template do jasperReport.
 	 */
 	static final String NAME_JASPER = "report.jasper";
-	
-	/**
-	 * Nome para relatório.
-	 */
-	static final String NAME_REPORT = "nome_para_relatorio";
+
 }
