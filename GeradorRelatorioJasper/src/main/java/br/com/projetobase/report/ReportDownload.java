@@ -1,13 +1,11 @@
 package br.com.projetobase.report;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.caelum.vraptor.observer.download.ByteArrayDownload;
 import br.com.caelum.vraptor.observer.download.Download;
-import net.sf.jasperreports.engine.JasperPrint;
 
 /**
  * Reads bytes from a report into the result.
@@ -18,16 +16,16 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 public class ReportDownload implements Download {
 	
-	private final ExportFormat format;
-	private List<JasperPrint> prints;
+	private String format;
 	private String nameFile;
 	private boolean doDownload;
+	private byte[] relatorio;
 	
-	public ReportDownload(List<JasperPrint> prints, ExportFormat format, String nameFile, boolean doDownload) {
-		this.prints = prints;
+	public ReportDownload(byte[] relatorio, String format, String nameFile, boolean doDownlaod) {
+		this.relatorio = relatorio;
 		this.format = format;
 		this.nameFile = nameFile;
-		this.doDownload = doDownload;
+		this.doDownload = doDownlaod;
 	}
 
 	public void write(HttpServletResponse response) throws IOException {
@@ -35,15 +33,14 @@ public class ReportDownload implements Download {
 	}
 	
 	private byte[] getContent(){
-		return format.toByteArray(prints);
+		return relatorio;
 	}
 
 	public String getContentType(){
-		return format.getContentType();
+		return format;
 	}
 	
 	public String getFileName(){
-		return nameFile + "." + format.getExtension();
+		return nameFile + "." + format;
 	}
-
 }
