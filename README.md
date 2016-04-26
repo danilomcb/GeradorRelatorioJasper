@@ -1,4 +1,4 @@
-# Projeto exemplo para gerar relatórios com JasperReports 
+# Projeto exemplo para gerar relatórios com JasperReports importando imagens de gráficos do Highcharts
 
 Estudo usa as seguintes tecnologias:
 
@@ -8,3 +8,4 @@ Estudo usa as seguintes tecnologias:
 3. JPA - Persistência.
 4. HSQLDB - Banco em memória.
 4. JasperReports - Gerar pdf
+5. Highcharts - Biblioteca de gráficos
